@@ -20,15 +20,11 @@ int	main(int ac, char **av)
 		std::cout << "* LOUD AND UNBEARABLE FEDDBACK NOISE *" << std::endl;
 	else
 	{
-		for(int i = 1; i < ac; ++i)
+		for (int i = 1; i < ac; ++i)
 		{
-			for(int c = 0; c < (int)strlen(av[i]); ++c)
-			{
-				if (av[i][c] >= 97 && av[i][c] <= 122)
-					std::cout << static_cast<char>(toupper(av[i][c]));
-				else
-					std::cout << av[i][c];
-			}
+			std::string str(av[i]);
+			for (int j = 0; j < (int)str.length(); ++j)
+				std::cout << (char)toupper(str[j]);
 		}
 		std::cout << std::endl;
 	}

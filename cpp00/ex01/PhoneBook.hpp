@@ -8,14 +8,15 @@ class PhoneBook
 {
 private:
 
-	Contact	contacts[7];
+	Contact	contacts[8];
 
 public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
 
-
+	void	setData(int index, int data);
+	int	getData(char *) const;
 };
 
 #endif

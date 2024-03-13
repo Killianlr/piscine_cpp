@@ -5,7 +5,7 @@ SRCS = Contact.cpp \
 		PhoneBook.cpp \
 		main.cpp \
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
