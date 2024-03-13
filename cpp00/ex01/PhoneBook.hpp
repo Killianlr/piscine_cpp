@@ -8,14 +8,14 @@ class PhoneBook
 {
 private:
 
-	Contact	contacts[8];
-	int	_nbContacts;
+	Contact	contacts[7];
+
 public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	int	creat_contact(void);
+
 };
 
 #endif

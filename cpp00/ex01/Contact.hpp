@@ -14,18 +14,24 @@ class Contact
 {
 private:
 
-	static int	_nbContact;
+	char _first_name[144];
+	char _last_name[144];
+	char _nickname[144];
+	char _phone_number[144];
+	char _darker_secret[144];
 
 public:
 
-	char first_name[512];
-	char last_name[512];
-	char nickname[512];
-	char phone_number[512];
-	char darker_secret[512];
-
 	Contact(void);
 	~Contact(void);
+
+	int	setData(int i);
+	int	setFirstName(void);
+	int	setLastName(void);
+	int	setNickName(void);
+	int	setPhoneNumber(void);
+	int	setDarkerSecret(void);
+	int	getData(char *) const;
 
 };
 
