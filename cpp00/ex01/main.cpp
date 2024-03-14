@@ -48,6 +48,8 @@ int	main(void)
 	{
 		std::cout << yellow << "Enter a command : " << reset;
 		std::cin >> cmd;
+		std::cin.clear();
+		std::cin.ignore();
 		action = find_action(cmd);
 		if (action == 4)
 		{

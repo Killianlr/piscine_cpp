@@ -16,7 +16,7 @@ void	HumanB::attack(void) const {
 	std::cout << yellow << this->_name << "attacks with their " << this->_type->getType() << reset << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon type) {
+void	HumanB::setWeapon(Weapon &type) {
 
-	this->_type = new Weapon(type.getType());
+	this->_type = &type;
 }

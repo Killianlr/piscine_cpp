@@ -22,12 +22,20 @@ Contact::~Contact(void) {
 	std::cout << red << "destructeur contact called" << reset << std::endl;
 }
 
+#include <sstream> 
 std::string readInfo(std::string info)
 {
 	std::string line;
-
+	
 	while (line.empty() || line.length() > 144 || is_empty(line))
 	{
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			std::cout << "EOF DETECTED"<< std::endl;
+			exit(1);
+		}
+		// std::cout << "size " << line.length() << std::endl;
 		std::cout << blue << info << reset;
 		std::getline(std::cin, line);
 	}
