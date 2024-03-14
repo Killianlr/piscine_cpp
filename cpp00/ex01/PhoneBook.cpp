@@ -13,102 +13,9 @@ int	find_action(char *cmd)
 	return (0);
 }
 
-// int	fill_contact(Contact contact)
-// {
-// 	std::cout << green << "first name : " << reset;
-// 	std::cin >> contact.first_name;
-
-// 	std::cout << green << "last name : " << reset;
-// 	std::cin >> contact.last_name;
-
-// 	std::cout << green << "nickname : " << reset;
-// 	std::cin >> contact.nickname;
-
-// 	std::cout << green << "phone number : " << reset;
-// 	std::cin >> contact.phone_number;
-
-// 	std::cout << green << "darker secret : " << reset;
-// 	std::cin >> contact.darker_secret;
-
-// 	return (0);
-// }
-
-// void	print_lst_contact(char *data)
-// {
-// 	int	len;
-// 	int	delta;
-
-// 	len = strlen(data);
-// 	if (len > 10)
-// 	{
-// 		for (int i = 0; i < 9 ; ++i)
-// 			std::cout << data[i];
-// 		std::cout << ".|";
-// 	}
-// 	else
-// 	{
-// 		delta = 10 - len;
-// 		while (delta)
-// 		{
-// 			std::cout << ' ';
-// 			delta--;
-// 		}
-// 		for(int i = 0; i <= len; ++i)
-// 			std::cout << data[i];
-// 		std::cout << '|';
-// 	}
-
-// }
-
 PhoneBook::PhoneBook(void) {
 
-	// char	cmd[1024];
-	// int		action;
-	// int		nb_contact;
-	// int		index;
-
-	// (void)index;
-	// nb_contact = 0;
 	std::cout << green << "contructeur phonebook called" << reset << std::endl;
-	// while (1)
-	// {
-	// 	std::cout << yellow << "Enter a command : " << reset;
-	// 	std::cin >> cmd;
-	// 	action = find_action(cmd);
-	// 	if (action == 3)
-	// 		break ;
-	// 	if (action == 2)
-	// 	{
-	// 		std::cout << red << "SEARCH" << reset << std::endl;
-	// 		std::cout << blue << "     index|first name| last name|  nickname|" << std::endl;
-	// 		// while (index <= nb_contact)
-	// 		// {
-	// 		// 	std::cout << blue << "         " << index << '|';
-	// 		// 	print_lst_contact(contacts[index].first_name);
-	// 		// 	print_lst_contact(contacts[index].last_name);
-	// 		// 	print_lst_contact(contacts[index].nickname);
-	// 		// 	std::cout << std::endl;
-	// 		// 	index++;
-	// 		// }
-	// 		std::cout << reset;
-	// 	}
-	// 	if (action == 1)
-	// 	{
-
-	// 		if (nb_contact == 7)
-	// 			nb_contact = 0;
-	// 		std::cout << red << "ADD created contact" << reset << std::endl;
-
-	// 		for(int j = 1; j < 6; ++j)
-	// 		{
-	// 			if (this->contacts[nb_contact].setData(j))
-	// 			{
-	// 				std::cout << red << "line to long" << reset << std::endl;
-	// 			}
-	// 		}
-	// 		nb_contact++;
-	// 	}
-	// }
 }
 
 PhoneBook::~PhoneBook(void) {
@@ -119,4 +26,52 @@ PhoneBook::~PhoneBook(void) {
 void	PhoneBook::setData(int index, int data) {
 
 	contacts[index].setData(data);
+}
+
+void	PhoneBook::print_contacts(int nb_contacts) const {
+
+	if (nb_contacts == -1)
+	{
+		std::cout << red << "NOT EVEN CONTACTS REGISTED" << reset << std::endl;
+		return ;
+	}
+	std::cout << blue << "     INDEX|FIRST NAME| LAST NAME|  NIKCNAME|" << std::endl;
+	for(int i = 0; i <= nb_contacts; ++i)
+	{
+		std::cout << "         " << i << '|';
+		contacts[i].printfInfo();
+	}
+}
+
+void	PhoneBook::setIdx(std::int16_t v, int nb_contact, bool m) {
+
+	if (v > 7 || v < 0)
+	{
+		std::cout << red << "contact : " << v << " unexiste" << reset << std::endl;
+		this->_idx = -1;
+	}
+	else if (v > nb_contact && !m)
+	{
+		std::cout << red << "contact : " << v << " even unexiste" << reset << std::endl;
+		this->_idx = -1;
+	}
+	else
+		this->_idx = v;
+}
+
+std::int16_t PhoneBook::getIdx(void) const {
+
+	return this->_idx;
+}
+
+void	PhoneBook::print_contact_info(std::int16_t idx) const {
+
+	if (idx < 0)
+		return ;
+	std::cout << blue << "    *CONTACT [" << idx << "]*" << std::endl;
+	std::cout << blue << "fist name : " << this->contacts[idx].getData(1) << std::endl;
+	std::cout << blue << "lasr name : " << this->contacts[idx].getData(2) << std::endl;
+	std::cout << blue << "nickname : " << this->contacts[idx].getData(3) << std::endl;
+	std::cout << blue << "phone number : " << this->contacts[idx].getData(4) << std::endl;
+	std::cout << blue << "darkest secret : " << this->contacts[idx].getData(5) << std::endl;
 }

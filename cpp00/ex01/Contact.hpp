@@ -26,7 +26,8 @@ public:
 	~Contact(void);
 
 	void	setData(int i);
-	int	getData(char *) const;
+	std::string	getData(int i) const;
+	void	printfInfo(void) const;
 
 };
 

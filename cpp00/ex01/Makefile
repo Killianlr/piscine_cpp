@@ -15,8 +15,10 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-clean: 
+clean:
+		rm -rf $(OBJS)
 
 fclean: clean
+		rm -rf $(NAME)
 
 re: fclean all
