@@ -1,9 +1,10 @@
 bonsoir
 ok
-test
+je suis test
 next
 je suis
-nous somme
+nous sommes
 vous etes
 test et toi
 ok
+test nous sommes des test merdes
