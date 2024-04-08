@@ -45,8 +45,8 @@ int	ClapTrap::getStat(const std::string str)
 ClapTrap &ClapTrap::operator=(ClapTrap &tmp)
 {
 	std::cout << green << "ClapTrap operator = called" << reset << std::endl;
-	_attackDamage = tmp._attackDamage;
-	_name = tmp._name;
+	this->_attackDamage = tmp._attackDamage;
+	this->_name = tmp._name;
 	this->_hitPoints = tmp._hitPoints;
 	this->_energyPoints = tmp._energyPoints;
 	return (*this);

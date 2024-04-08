@@ -22,6 +22,15 @@ FragTrap::FragTrap(FragTrap &tmp) : ClapTrap()
     std::cout << "Copy FragTrap constructor called" << std::endl;
 }
 
+FragTrap &FragTrap::operator=(FragTrap &tmp)
+{
+    this->_attackDamage = tmp._attackDamage;
+	this->_name = tmp._name;
+	this->_hitPoints = tmp._hitPoints;
+	this->_energyPoints = tmp._energyPoints;
+	return (*this);
+}
+
 void    FragTrap::highFivesGuys() const
 {
 std::cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠒⢀⣠⠒⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;

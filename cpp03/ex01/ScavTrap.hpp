@@ -12,7 +12,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap &tmp);
-		// ScavTrap &operator=(ScavTrap &tmp);
+		ScavTrap &operator=(ScavTrap &tmp);
 
 		void attack(const std::string& target);
 		void guardGate();
