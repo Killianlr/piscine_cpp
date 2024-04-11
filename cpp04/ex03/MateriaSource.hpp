@@ -11,8 +11,7 @@ class   MateriaSource : public IMateriaSource
 
     private:
 
-        AMateria *_leanedMat[4];
-        int     _idx = 0;
+        AMateria **_leanedMat;
 
     public:
 

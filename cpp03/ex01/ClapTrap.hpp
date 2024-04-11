@@ -19,6 +19,7 @@ class ClapTrap
 		int	_energyPoints = 50;
 		int	_attackDamage = 20;
 
+		void		attack(const std::string& target);
 	public:
 
 		ClapTrap();
@@ -30,7 +31,6 @@ class ClapTrap
 		std::string	getName();
 		int			getStat(const std::string str);
 
-		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 };

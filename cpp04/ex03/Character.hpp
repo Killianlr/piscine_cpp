@@ -11,7 +11,7 @@ class   Character : public ICharacter
     private:
 
         std::string _name;
-        AMateria    *Materias[4];
+        AMateria    **Materias;
 
     public:
 

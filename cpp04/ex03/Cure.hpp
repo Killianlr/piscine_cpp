@@ -7,6 +7,7 @@
 class   Cure : public AMateria
 {
 
+	private :
     public:
 
         Cure();

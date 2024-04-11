@@ -7,6 +7,8 @@
 class   Ice : public AMateria
 {
 
+	private :
+
     public:
 
         Ice();

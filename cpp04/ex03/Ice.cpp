@@ -2,9 +2,10 @@
 #include "Ice.hpp"
 
 
-Ice::Ice() : AMateria("Ice")
+Ice::Ice() : AMateria(std::string("ice"))
 {
-    std::cout << yellow << "Ice" << green << " constructor called" << reset << std::endl;
+	    std::cout << yellow << "Ice" << green << " constructor called" << reset << std::endl;
+		std::cout << " in ICE_type = " << _type << std::endl;
 }
 
 Ice::~Ice()
@@ -33,3 +34,4 @@ void    Ice::use(ICharacter& target)
 {
     std::cout << yellow << "* shoots an ice bolt at " << target.getName() << " *" << reset << std::endl;
 }
+
