@@ -34,29 +34,40 @@ MateriaSource &MateriaSource::operator=(MateriaSource &eq)
 
 void    MateriaSource::learnMateria(AMateria *m)
 {
-	std::cout << "---learn materia---" << std::endl;
 	for (int i = 0; i < 4; ++i)
 	{
 		if (this->_leanedMat[i] == NULL)
     	{
-			std::cout << "Materia " << m->getType() << " learned" << std::endl;
-				this->_leanedMat[i] = m;
-				return ;
+			this->_leanedMat[i] = m;
+			return ;
 		}
 	}
 }
 
 AMateria    *MateriaSource::createMateria(std::string const &type)
 {
+	this->_idx++;
+
 	for (int i = 0; i < 4; ++i)
 	{
+		if (this->_idx > 3)
+		{
+			std::cout << "inventory full !" << std::endl;
+			return NULL;
+		}
 		if (this->_leanedMat[i] != NULL)
     	{
     		if (type == this->_leanedMat[i]->getType())
         		return (this->_leanedMat[i]->clone());
-
 		//ATTENTION DERNIERE MAT APPRISE
 		}
 	}
     return (0);
 }
+
+// void	MateriaSource::checkMat()
+// {
+// 	int i = 0;
+
+// 	while (i < 4 && this->_)
+// }

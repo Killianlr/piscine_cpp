@@ -2,17 +2,6 @@
 #include "PhoneBook.hpp"
 #include <string.h>
 
-int	find_action(char *cmd)
-{
-	if (!strncmp(cmd, "ADD", 5))
-		return (1);
-	if (!strncmp(cmd, "SEARCH", 8))
-		return (2);
-	if (!strncmp(cmd, "EXIT", 6))
-		return (3);
-	return (0);
-}
-
 PhoneBook::PhoneBook(void) {
 
 	std::cout << green << "contructeur phonebook called" << reset << std::endl;

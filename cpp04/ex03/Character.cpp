@@ -5,18 +5,19 @@
 Character::Character(const char *name) : _name(name)
 {
     std::cout << blue << "Character" << green << " constuctor called" << reset << std::endl;
-	Materias = new AMateria*[4];
+	this->_Materias = new AMateria*[4];
     for (int i = 0; i < 4; ++i)
-        Materias[i] = NULL;
+        this->_Materias[i] = NULL;
+	this->_uMaterias = NULL;
 }
 
 Character::~Character()
 {
     std::cout << blue << "Character" << red << " destructor called" << reset << std::endl;
     for (int i = 0; i < 4; ++i)
-        if (this->Materias[i])
-            delete this->Materias[i];
-	delete [] this->Materias;
+        if (this->_Materias[i])
+            delete this->_Materias[i];
+	delete [] this->_Materias;
 }
 
 Character::Character(Character &tmp)
@@ -28,9 +29,11 @@ Character::Character(Character &tmp)
 Character &Character::operator=(Character &eq)
 {
     this->_name = eq.getName();
-	this->Materias = new AMateria*[4];
+	this->_Materias = new AMateria*[4];
     for (int i = 0; i < 4; ++i)
-        this->Materias[i] = eq.Materias[i]->clone();    return (*this);
+        this->_Materias[i] = eq._Materias[i]->clone();
+	this->_uMaterias = eq._uMaterias;
+	return (*this);
 }
 
 std::string const &Character::getName() const
@@ -40,13 +43,13 @@ std::string const &Character::getName() const
 
 void    Character::equip(AMateria *m)
 {
-    std::cout << red << "character::equip" << reset << std::endl;
+	if (!m)
+		return ;
 	for (int i = 0; i < 4; ++i)
 	{
-		if (this->Materias[i] == NULL)
+		if (this->_Materias[i] == NULL)
 		{
-			// std::cout << "Materia " << m->getType() << " equiped" << std::endl;
-			this->Materias[i] = m;
+			this->_Materias[i] = m;
 			return ;
 		}
 	}
@@ -55,17 +58,21 @@ void    Character::equip(AMateria *m)
 
 void    Character::unequip(int idx)
 {
-
+	this->_uMaterias = this->_Materias[idx];
+	while (this->_Materias[idx + 1] != NULL)
+	{
+		this->_Materias[idx] = this->_Materias[idx + 1];
+		idx++;
+	}
+	this->_Materias[idx] = NULL;
 }
 
 void    Character::use(int idx, ICharacter &target)
 {
-	if (idx > 3 || this->Materias[idx] == NULL)
+	if (idx > 3 || this->_Materias[idx] == NULL)
 	{
-		std::cout << "idx = " << idx << std::endl;
 		std::cout << "No materia in this slot" << std::endl;
 		return ;
 	}
-    std::cout << red << "character::use" << reset << std::endl;
-    this->Materias[idx]->use(target);
+    this->_Materias[idx]->use(target);
 }
