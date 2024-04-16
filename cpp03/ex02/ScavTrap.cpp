@@ -39,12 +39,12 @@ void	ScavTrap::guardGate()
 	std::cout << blue << "Im in Gate keeper mode !" << reset << std::endl;
 }
 
-// ScavTrap &ScavTrap::operator=(ScavTrap &tmp)
-// {
-// 	std::cout << yellow << "ScavTrap operator = called" << reset << std::endl;
-// 	_attackDamage = rhs._attackDamage;
-// 	_name = tmp._name;
-// 	this->_hitPoints = tmp._hitPoints;
-// 	this->_energyPoints = tmp._energyPoints;
-// 	return (*this);
-// }
+ScavTrap &ScavTrap::operator=(ScavTrap &tmp)
+{
+	std::cout << yellow << "ScavTrap operator = called" << reset << std::endl;
+	_attackDamage = tmp._attackDamage;
+	_name = tmp._name;
+	this->_hitPoints = tmp._hitPoints;
+	this->_energyPoints = tmp._energyPoints;
+	return (*this);
+}
