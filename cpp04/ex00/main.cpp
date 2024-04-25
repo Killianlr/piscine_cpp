@@ -4,15 +4,6 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-// int	main(void)
-// {
-// 	Cat cat;
-// 	Dog dog;
-
-// 	cat.makeSound();
-// 	dog.makeSound();
-// }
-
 int main()
 {
 	const WrongAnimal* meta = new WrongAnimal();

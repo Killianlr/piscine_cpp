@@ -59,15 +59,7 @@ AMateria    *MateriaSource::createMateria(std::string const &type)
     	{
     		if (type == this->_leanedMat[i]->getType())
         		return (this->_leanedMat[i]->clone());
-		//ATTENTION DERNIERE MAT APPRISE
 		}
 	}
     return (0);
 }
-
-// void	MateriaSource::checkMat()
-// {
-// 	int i = 0;
-
-// 	while (i < 4 && this->_)
-// }
