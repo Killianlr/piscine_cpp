@@ -14,6 +14,7 @@ int	main()
 		std::cout << aude << std::endl;
 		form1.beSigned(aude);
 		std::cout << form1 << std::endl;
+		form1.beSigned(aude);
 	}
 	catch (std::exception &e)
 	{

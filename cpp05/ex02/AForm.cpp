@@ -1,28 +1,28 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(std::string name, int signIt, int execIt) : _name(name), _signIt(signIt), _execIt(execIt)
+AForm::AForm(std::string name, int signIt, int execIt, std::string target) : _name(name), _signIt(signIt), _execIt(execIt), _target(target)
 {
 	checkGrade();
 	this->_signed = false;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
-Form::Form(Form &tmp) : _name(tmp._name), _signIt(tmp._signIt), _execIt(tmp._execIt)
+AForm::AForm(const AForm &tmp) : _name(tmp._name), _signIt(tmp._signIt), _execIt(tmp._execIt), _target(tmp._target)
 {
 	*this = tmp;
 }
 
-Form	&Form::operator=(Form &eq)
+AForm	&AForm::operator=(const AForm &eq)
 {
 	this->_signed = eq._signed;
 	return *this;
 }
 
-void	Form::checkGrade() const
+void	AForm::checkGrade() const
 {
 	if (this->_signIt > 150 || this->_execIt > 150)
 		throw GradeTooLowExcpetion();
@@ -30,27 +30,32 @@ void	Form::checkGrade() const
 		throw GradeTooHighExcpetion();
 }
 
-std::string	Form::getName() const
+std::string	AForm::getName() const
 {
 	return this->_name;
 }
 
-bool	Form::getSigned() const
+bool	AForm::getSigned() const
 {
 	return this->_signed;
 }
 
-int		Form::getSignIt() const
+int		AForm::getSignIt() const
 {
 	return this->_signIt;
 }
 
-int		Form::getExecIt() const
+int		AForm::getExecIt() const
 {
 	return this->_execIt;
 }
 
-void	Form::beSigned(Bureaucrat &bu)
+std::string	AForm::getTarget() const
+{
+	return this->_target;
+}
+
+void	AForm::beSigned(Bureaucrat &bu)
 {
 	try
 	{
@@ -70,7 +75,14 @@ void	Form::beSigned(Bureaucrat &bu)
 	}
 }
 
-std::ostream	&operator<<(std::ostream &os, Form &tmp)
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	if (!this->_signed || executor.getGrade() > this->_execIt)
+		throw CannotExecuteFormException();
+	action();
+}
+
+std::ostream	&operator<<(std::ostream &os, AForm &tmp)
 {
 	os << "Form's name : " << tmp.getName()
 	<< ", statut : " << tmp.getSigned()
