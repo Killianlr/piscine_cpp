@@ -64,7 +64,7 @@ void	Form::beSigned(Bureaucrat &bu)
 		this->_signed = true;
 		bu.signForm(*this);
 	}
-	catch(AForm::GradeTooLowExcpetion & e)
+	catch(Form::GradeTooLowExcpetion & e)
 	{
 		bu.signForm(*this);
 	}
