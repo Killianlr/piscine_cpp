@@ -1,11 +1,8 @@
 
-NAME = convert
+NAME = serialisation
 
-SRCS = main.cpp \
-		ScalarConverter.cpp\
-		ScalarConverterDataType.cpp\
-		ScalarConverterFloatingsPrecisions.cpp\
-
+SRCS = main.cpp \	
+		
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
