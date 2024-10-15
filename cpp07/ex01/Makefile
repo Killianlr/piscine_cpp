@@ -1,8 +1,7 @@
 
-NAME = Identify
+NAME = Iter
 
 SRCS = main.cpp \
-		Base.cpp \
 		
 OBJS = $(SRCS:.cpp=.o)
 

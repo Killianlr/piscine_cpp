@@ -1,8 +1,8 @@
 
-NAME = Identify
+NAME = SwapMinMax
 
 SRCS = main.cpp \
-		Base.cpp \
+		Test.cpp \
 		
 OBJS = $(SRCS:.cpp=.o)
 
