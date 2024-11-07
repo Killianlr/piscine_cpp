@@ -31,7 +31,7 @@ int	main(void)
 {
 	std::string cmd;
 	int		action;
-	std::int16_t idx;
+	int16_t idx;
 
 	std::cout << green << "------WELCOME IN PHONEBOOK-------" << reset << std::endl;
 	std::cout << std::endl;

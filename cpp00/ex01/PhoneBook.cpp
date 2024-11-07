@@ -32,7 +32,7 @@ void	PhoneBook::print_contacts(int nb_contacts) const {
 	}
 }
 
-void	PhoneBook::setIdx(std::int16_t v, int nb_contact, bool m) {
+void	PhoneBook::setIdx(int16_t v, int nb_contact, bool m) {
 
 	if (v > 7 || v < 0)
 	{
@@ -48,12 +48,12 @@ void	PhoneBook::setIdx(std::int16_t v, int nb_contact, bool m) {
 		this->_idx = v;
 }
 
-std::int16_t PhoneBook::getIdx(void) const {
+int16_t PhoneBook::getIdx(void) const {
 
 	return this->_idx;
 }
 
-void	PhoneBook::print_contact_info(std::int16_t idx) const {
+void	PhoneBook::print_contact_info(int16_t idx) const {
 
 	if (idx < 0)
 		return ;

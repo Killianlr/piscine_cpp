@@ -48,6 +48,11 @@
         "concepts": "cpp",
         "numbers": "cpp",
         "ranges": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "iomanip": "cpp"
     }
 }
